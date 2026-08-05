@@ -5,51 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interactive Femur Atlas</title>
 
-<style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f5f7fb;
-}
-
-header{
-    background:#0b5ed7;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-iframe{
-    width:100%;
-    height:500px;
-    border:none;
-}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-}
-
-.info{
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    background:#0b5ed7;
-    color:white;
-    font-size:18px;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -62,17 +18,18 @@ button{
 <div class="container">
 
 <iframe
-src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed">
+src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed"
+allowfullscreen>
 </iframe>
 
-<div class="info">
+<div class="card">
 
 <h2 id="title">Head of Femur</h2>
 
 <p id="description">
 Articulates with the acetabulum to form the hip joint.
 </p>
-<button onclick="alert('Hello!')">Test</button>
+
 <button onclick="nextPart()">
 Next Structure →
 </button>
@@ -81,45 +38,7 @@ Next Structure →
 
 </div>
 
-<script>
-
-const parts = [
-  {
-    title: "Head of Femur",
-    description: "Articulates with the acetabulum to form the hip joint."
-  },
-  {
-    title: "Neck of Femur",
-    description: "Connects the head to the shaft."
-  },
-  {
-    title: "Greater Trochanter",
-    description: "Large projection for muscle attachment."
-  },
-  {
-    title: "Lesser Trochanter",
-    description: "Insertion site of iliopsoas muscle."
-  },
-  {
-    title: "Shaft",
-    description: "Strong body of the femur."
-  }
-];
-
-let i = 0;
-
-function nextPart() {
-  i++;
-
-  if (i >= parts.length) {
-    i = 0;
-  }
-
-  document.getElementById("title").innerHTML = parts[i].title;
-  document.getElementById("description").innerHTML = parts[i].description;
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

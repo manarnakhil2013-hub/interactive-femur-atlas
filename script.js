@@ -1,4 +1,3 @@
-
 const anatomy = {
 
 head:{
@@ -36,14 +35,21 @@ title:"Lateral Condyle",
 text:"Supports articulation with the tibia."
 }
 
+
+
 };
 
+
+
 function showPart(name){
+
 
 document.getElementById("partTitle").innerHTML =
 anatomy[name].title;
 
+
 document.getElementById("partText").innerHTML =
 anatomy[name].text;
+
 
 }

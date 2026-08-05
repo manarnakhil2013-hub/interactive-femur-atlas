@@ -1,1 +1,25 @@
+/* ===========================
+   MedAtlas AI - Theme
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#F5F6FA;
+    color:#2F3542;
+}
+
+:root{
+    --primary:#6C4DFF;      /* Tech Purple */
+    --secondary:#8B7DFF;    /* Light Purple */
+    --gray:#6B7280;
+    --light:#FFFFFF;
+    --background:#F5F6FA;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:18px;
+}

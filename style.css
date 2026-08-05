@@ -44,3 +44,48 @@ header p{
     opacity:.9;
     font-size:16px;
 }
+/* ===========================
+   Main Layout
+=========================== */
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:30px;
+}
+
+.viewer,
+.info{
+    background:white;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px;
+}
+
+.viewer{
+    flex:2;
+    min-width:320px;
+}
+
+.viewer iframe{
+    width:100%;
+    height:600px;
+    border:none;
+    border-radius:12px;
+}
+
+.info{
+    flex:1;
+    min-width:280px;
+}
+
+.info h2{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.info p{
+    line-height:1.7;
+    color:var(--gray);
+}

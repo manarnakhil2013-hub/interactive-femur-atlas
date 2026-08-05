@@ -23,3 +23,24 @@ body{
     --shadow:0 10px 30px rgba(0,0,0,.08);
     --radius:18px;
 }
+/* ===========================
+   Header
+=========================== */
+
+header{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    padding:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+header h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+header p{
+    opacity:.9;
+    font-size:16px;
+}

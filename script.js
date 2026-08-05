@@ -3,13 +3,15 @@ const anatomy = {
 head:{
 title:"Head of Femur",
 text:"The head articulates with the acetabulum forming the hip joint.",
-clinical:"Clinical note: The blood supply of the femoral head is important. Damage can lead to avascular necrosis."
+clinical:"Clinical note: The blood supply of the femoral head is important.",
+quiz:"Which structure articulates with the acetabulum?"
 },
 
 neck:{
 title:"Neck of Femur",
 text:"Connects the head to the shaft and is a common fracture site.",
-clinical:"Clinical note: Femoral neck fractures are common in elderly patients and may affect blood supply."
+clinical:"Clinical note: Femoral neck fractures are common.",
+quiz:"Which part of the femur is a common fracture site?"
 },
 
 greater:{
@@ -50,13 +52,17 @@ function showPart(name){
 document.getElementById("partTitle").innerHTML =
 anatomy[name].title;
 
-
 document.getElementById("partText").innerHTML =
 anatomy[name].text;
 
-
 document.getElementById("clinical").innerHTML =
 anatomy[name].clinical;
+
+
+// تغيير سؤال الكويز حسب الجزء
+document.getElementById("quizQuestion").innerHTML =
+anatomy[name].quiz;
+
 
 }
 

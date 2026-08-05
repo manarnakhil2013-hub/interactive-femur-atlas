@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Femur Atlas</title>
+
+<title>MedAtlas AI - Femur Atlas</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+
 <header>
-    <main class="container">
+    <h1>🦴 MedAtlas AI</h1>
+    <p>Interactive 3D Anatomy Learning Platform</p>
+</header>
 
-    <section class="viewer">
 
-        <iframe
-            title="Human Femur"
-            frameborder="0"
-            allowfullscreen
-            src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed">
-        </iframe>
+<main class="container">
 
-    </section>
 
-    <section class="info">
+<section class="viewer">
 
-        <h2>Femur Structures</h2>
+<iframe
+src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed"
+allowfullscreen>
+</iframe>
+
+</section>
+
+
+
+<section class="info">
+
+<h2>Femur Structures</h2>
+
 
 <ul class="parts">
 
@@ -33,61 +44,49 @@
 
 <li onclick="showPart('neck')">Neck</li>
 
-<li onclick="showPart('greater')">Greater Trochanter</li>
+<li onclick="showPart('greater')">
+Greater Trochanter
+</li>
 
-<li onclick="showPart('lesser')">Lesser Trochanter</li>
+<li onclick="showPart('lesser')">
+Lesser Trochanter
+</li>
 
-<li onclick="showPart('shaft')">Shaft</li>
+<li onclick="showPart('shaft')">
+Shaft
+</li>
 
-<li onclick="showPart('medial')">Medial Condyle</li>
+<li onclick="showPart('medial')">
+Medial Condyle
+</li>
 
-<li onclick="showPart('lateral')">Lateral Condyle</li>
+<li onclick="showPart('lateral')">
+Lateral Condyle
+</li>
 
 </ul>
 
+
+
 <div class="description">
 
-<h3 id="partTitle">Head of Femur</h3>
+<h3 id="partTitle">
+Head of Femur
+</h3>
+
 
 <p id="partText">
-The head of the femur articulates with the acetabulum to form the hip joint.
+The head articulates with the acetabulum forming the hip joint.
 </p>
 
 </div>
 
-    </section>
+
+</section>
+
 
 </main>
-    <h1>🦴 MedAtlas AI</h1>
-    <p>Interactive 3D Anatomy Learning Platform</p>
-</header>
-<header>
-<h1>🦴 Interactive Femur Atlas</h1>
-<p>Medical Anatomy Learning</p>
-</header>
 
-<div class="container">
-
-<iframe
-src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed"
-allowfullscreen>
-</iframe>
-
-<div class="card">
-
-<h2 id="title">Head of Femur</h2>
-
-<p id="description">
-Articulates with the acetabulum to form the hip joint.
-</p>
-
-<button onclick="nextPart()">
-Next Structure →
-</button>
-
-</div>
-
-</div>
 
 <script src="script.js"></script>
 

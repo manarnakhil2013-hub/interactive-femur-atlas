@@ -89,3 +89,30 @@ header p{
     line-height:1.7;
     color:var(--gray);
 }
+.parts{
+    list-style:none;
+    margin:20px 0;
+    padding:0;
+}
+
+.parts li{
+    background:#F5F6FA;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.parts li:hover{
+    background:var(--primary);
+    color:white;
+}
+
+.description{
+    margin-top:25px;
+    padding:15px;
+    border-left:4px solid var(--primary);
+    background:#FAFAFA;
+    border-radius:10px;
+}

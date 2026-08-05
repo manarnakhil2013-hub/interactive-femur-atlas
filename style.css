@@ -1,118 +1,151 @@
-/* ===========================
-   MedAtlas AI - Theme
-=========================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#F5F6FA;
-    color:#2F3542;
+
+font-family: Arial, sans-serif;
+
+background:#f5f6fa;
+
+margin:0;
+
+color:#333;
+
 }
 
-:root{
-    --primary:#6C4DFF;      /* Tech Purple */
-    --secondary:#8B7DFF;    /* Light Purple */
-    --gray:#6B7280;
-    --light:#FFFFFF;
-    --background:#F5F6FA;
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-    --radius:18px;
-}
-/* ===========================
-   Header
-=========================== */
 
 header{
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    color:white;
-    padding:20px;
-    text-align:center;
-    box-shadow:var(--shadow);
+
+background:#6c63ff;
+
+color:white;
+
+text-align:center;
+
+padding:25px;
+
 }
 
-header h1{
-    font-size:32px;
-    margin-bottom:8px;
-}
-
-header p{
-    opacity:.9;
-    font-size:16px;
-}
-/* ===========================
-   Main Layout
-=========================== */
 
 .container{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    padding:30px;
+
+display:flex;
+
+gap:25px;
+
+padding:25px;
+
+max-width:1200px;
+
+margin:auto;
+
 }
 
-.viewer,
-.info{
-    background:white;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:20px;
-}
+
 
 .viewer{
-    flex:2;
-    min-width:320px;
+
+flex:2;
+
 }
+
 
 .viewer iframe{
-    width:100%;
-    height:600px;
-    border:none;
-    border-radius:12px;
+
+width:100%;
+
+height:600px;
+
+border-radius:20px;
+
+border:none;
+
 }
+
+
 
 .info{
-    flex:1;
-    min-width:280px;
+
+flex:1;
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 5px 20px #ddd;
+
 }
 
-.info h2{
-    color:var(--primary);
-    margin-bottom:15px;
-}
 
-.info p{
-    line-height:1.7;
-    color:var(--gray);
-}
+
 .parts{
-    list-style:none;
-    margin:20px 0;
-    padding:0;
+
+list-style:none;
+
+padding:0;
+
 }
+
+
 
 .parts li{
-    background:#F5F6FA;
-    padding:12px;
-    margin-bottom:10px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:.3s;
+
+padding:12px;
+
+margin:8px 0;
+
+background:#f0efff;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
 }
+
+
 
 .parts li:hover{
-    background:var(--primary);
-    color:white;
+
+background:#6c63ff;
+
+color:white;
+
+transform:translateX(5px);
+
 }
 
+
+
 .description{
-    margin-top:25px;
-    padding:15px;
-    border-left:4px solid var(--primary);
-    background:#FAFAFA;
-    border-radius:10px;
+
+margin-top:20px;
+
+padding:15px;
+
+border-left:5px solid #6c63ff;
+
+background:#fafafa;
+
+border-radius:10px;
+
+}
+
+
+
+@media(max-width:800px){
+
+.container{
+
+flex-direction:column;
+
+}
+
+
+.viewer iframe{
+
+height:400px;
+
+}
+
 }

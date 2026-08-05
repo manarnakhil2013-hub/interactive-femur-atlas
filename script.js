@@ -97,7 +97,7 @@ anatomy[name].text;
 document.getElementById("clinical").innerHTML =
 anatomy[name].clinical;
 
-
+startQuiz(name);
 // تغيير سؤال الكويز حسب الجزء
 document.getElementById("quizQuestion").innerHTML =
 anatomy[name].quiz;
@@ -155,5 +155,42 @@ else{
 alert("Try again ❌");
 
 }
+
+}
+let currentQuiz = 0;
+let selectedPart = "";
+
+function startQuiz(name){
+
+selectedPart = name;
+currentQuiz = 0;
+
+showQuestion();
+
+}
+
+
+function showQuestion(){
+
+document.getElementById("quizQuestion").innerHTML =
+anatomy[selectedPart].quiz[currentQuiz];
+
+}
+
+
+
+function nextQuestion(){
+
+currentQuiz++;
+
+if(currentQuiz >= anatomy[selectedPart].quiz.length){
+
+currentQuiz = 0;
+
+alert("Quiz completed 🎉");
+
+}
+
+showQuestion();
 
 }

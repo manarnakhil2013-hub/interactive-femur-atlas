@@ -84,9 +84,13 @@ quiz:[
 }
 
 };
-
+let currentPart = "";
+let questionIndex = 0;
 
 function showPart(name){
+
+currentPart = name;
+questionIndex = 0;
 
 document.getElementById("partTitle").innerHTML =
 anatomy[name].title;
@@ -97,14 +101,38 @@ anatomy[name].text;
 document.getElementById("clinical").innerHTML =
 anatomy[name].clinical;
 
-startQuiz(name);
+showQuestion();
+
+
 // تغيير سؤال الكويز حسب الجزء
 document.getElementById("quizQuestion").innerHTML =
 anatomy[name].quiz;
 
 
 }
+function showQuestion(){
 
+document.getElementById("quizQuestion").innerHTML =
+anatomy[currentPart].quiz[questionIndex];
+
+}
+
+
+function nextQuestion(){
+
+questionIndex++;
+
+if(questionIndex >= anatomy[currentPart].quiz.length){
+
+questionIndex = 0;
+
+alert("Quiz completed 🎉");
+
+}
+
+showQuestion();
+
+}
 
 // Quiz
 

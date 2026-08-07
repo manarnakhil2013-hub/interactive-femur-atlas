@@ -2,125 +2,187 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedAtlas AI - Femur Atlas</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Interactive Femur Atlas</title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-<header>
-    <h1>🦴 MedAtlas AI</h1>
-    <p>Interactive 3D Anatomy Learning Platform</p>
-</header>
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>🦴 MedAtlas AI</h1>
+
+        <p>
+            Interactive 3D Anatomy Learning Platform
+        </p>
+
+    </header>
 
 
-<main class="container">
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
 
-<section class="viewer">
-
-<div class="model-container">
-
-<iframe
-src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed"
-allowfullscreen>
-</iframe>
+    <main class="container">
 
 
+        <!-- =========================
+             3D FEMUR VIEWER
+        ========================== -->
 
+        <section class="viewer">
 
-</div>
+            <iframe
+                title="Human Femur"
+                src="https://sketchfab.com/models/a9c1f1a88b104c3fbfe975fa10b31b31/embed"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
 
-</section>
-
-
-
-
-<section class="info">
-
-<h2>Femur Structures</h2>
-
-
-<ul class="parts">
-
-<li onclick="showPart('head')">Head</li>
-
-<li onclick="showPart('neck')">Neck</li>
-
-<li onclick="showPart('greater')">
-Greater Trochanter
-</li>
-
-<li onclick="showPart('lesser')">
-Lesser Trochanter
-</li>
-
-<li onclick="showPart('shaft')">
-Shaft
-</li>
-
-<li onclick="showPart('medial')">
-Medial Condyle
-</li>
-
-<li onclick="showPart('lateral')">
-Lateral Condyle
-</li>
-
-</ul>
+        </section>
 
 
 
-<div class="description">
+        <!-- =========================
+             ANATOMY INFORMATION
+        ========================== -->
 
-<h3 id="partTitle">
-Head of Femur
-</h3>
-<p id="clinical">
-Clinical note will appear here.
-</p>
-<div class="quiz">
+        <section class="info">
 
-    <h2>🧠 Quiz Mode</h2>
-
-    <p id="quizQuestion">
-        Select a structure to start.
-    </p>
-
-    <div id="quizOptions"></div>
-
-    <p id="quizResult"></p>
-
-    <button type="button" onclick="checkAnswer()">
-        Check Answer
-    </button>
-
-    <button type="button" onclick="nextQuestion()">
-        Next Question →
-    </button>
-
-</div>
+            <h2>Femur Structures</h2>
 
 
+            <ul class="parts">
 
-<p id="partText">
-The head articulates with the acetabulum forming the hip joint.
-</p>
+                <li onclick="showPart('head')">
+                    Head
+                </li>
 
-</div>
+                <li onclick="showPart('neck')">
+                    Neck
+                </li>
+
+                <li onclick="showPart('greater')">
+                    Greater Trochanter
+                </li>
+
+                <li onclick="showPart('lesser')">
+                    Lesser Trochanter
+                </li>
+
+                <li onclick="showPart('shaft')">
+                    Shaft
+                </li>
+
+                <li onclick="showPart('medial')">
+                    Medial Condyle
+                </li>
+
+                <li onclick="showPart('lateral')">
+                    Lateral Condyle
+                </li>
+
+            </ul>
 
 
-</section>
+
+            <!-- =========================
+                 DESCRIPTION
+            ========================== -->
+
+            <div class="description">
+
+                <h3 id="partTitle">
+                    Head of Femur
+                </h3>
+
+                <p id="partText">
+                    The head of the femur articulates
+                    with the acetabulum to form the hip joint.
+                </p>
+
+                <p id="clinical"></p>
+
+            </div>
 
 
-</main>
+
+            <!-- =========================
+                 QUIZ
+            ========================== -->
+
+            <div class="quiz">
+
+                <h2>🧠 Quiz Mode</h2>
 
 
-<script src="script.js"></script>
+                <p id="quizQuestion">
+                    Select a structure to start.
+                </p>
+
+
+                <!-- Answer options will appear here -->
+
+                <div id="quizOptions"></div>
+
+
+                <!-- Correct / Incorrect message -->
+
+                <p id="quizResult"></p>
+
+
+                <!-- Check selected answer -->
+
+                <button
+                    type="button"
+                    onclick="checkAnswer()">
+
+                    Check Answer
+
+                </button>
+
+
+                <!-- Go to next question -->
+
+                <button
+                    type="button"
+                    onclick="nextQuestion()">
+
+                    Next Question →
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -132,3 +132,23 @@ function nextQuestion() {
 
     showQuestion();
 }
+function checkAnswer() {
+
+    if (currentPart === null) {
+        return;
+    }
+
+    const answer =
+        document.getElementById("quizAnswer").value
+        .trim()
+        .toLowerCase();
+
+    if (answer === "") {
+        document.getElementById("quizResult").innerHTML =
+            "Please enter an answer.";
+        return;
+    }
+
+    document.getElementById("quizResult").innerHTML =
+        "Answer submitted ✅";
+}

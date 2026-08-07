@@ -1,9 +1,19 @@
+// ==========================================
+// INTERACTIVE FEMUR ATLAS
+// ==========================================
+
+
+// ==========================================
+// ANATOMY DATA
+// ==========================================
+
 const anatomy = {
 
     head: {
         title: "Head of Femur",
         text: "The head articulates with the acetabulum forming the hip joint.",
         clinical: "Clinical note: The blood supply of the femoral head is clinically important.",
+
         quiz: [
             {
                 question: "Which structure articulates with the acetabulum?",
@@ -38,10 +48,12 @@ const anatomy = {
         ]
     },
 
+
     neck: {
         title: "Neck of Femur",
         text: "Connects the head to the shaft and is a common fracture site.",
         clinical: "Clinical note: Femoral neck fractures may affect the blood supply of the femoral head.",
+
         quiz: [
             {
                 question: "What does the neck of the femur connect?",
@@ -76,10 +88,12 @@ const anatomy = {
         ]
     },
 
+
     greater: {
         title: "Greater Trochanter",
         text: "Large lateral projection for muscle attachment.",
-        clinical: "Clinical note: It provides attachment for several muscles around the hip.",
+        clinical: "Clinical note: The greater trochanter provides attachment for several muscles around the hip.",
+
         quiz: [
             {
                 question: "Where is the greater trochanter located?",
@@ -114,10 +128,12 @@ const anatomy = {
         ]
     },
 
+
     lesser: {
         title: "Lesser Trochanter",
         text: "Insertion of the iliopsoas muscle.",
-        clinical: "Clinical note: It is an important attachment site for the iliopsoas muscle.",
+        clinical: "Clinical note: The lesser trochanter is an important attachment site for the iliopsoas muscle.",
+
         quiz: [
             {
                 question: "Which muscle inserts on the lesser trochanter?",
@@ -152,10 +168,12 @@ const anatomy = {
         ]
     },
 
+
     shaft: {
         title: "Shaft",
         text: "The long cylindrical body of the femur.",
         clinical: "Clinical note: Femoral shaft fractures can be serious injuries.",
+
         quiz: [
             {
                 question: "What is the long central portion of the femur called?",
@@ -190,10 +208,12 @@ const anatomy = {
         ]
     },
 
+
     medial: {
         title: "Medial Condyle",
         text: "Forms part of the knee joint.",
         clinical: "Clinical note: The medial condyle participates in the knee articulation.",
+
         quiz: [
             {
                 question: "Where is the medial condyle located?",
@@ -228,10 +248,12 @@ const anatomy = {
         ]
     },
 
+
     lateral: {
         title: "Lateral Condyle",
         text: "Supports articulation with the tibia.",
         clinical: "Clinical note: The lateral condyle participates in the knee joint.",
+
         quiz: [
             {
                 question: "Where is the lateral condyle located?",
@@ -269,71 +291,110 @@ const anatomy = {
 };
 
 
-// =============================
-// QUIZ STATE
-// =============================
+// ==========================================
+// QUIZ VARIABLES
+// ==========================================
 
 let currentPart = null;
+
 let questionIndex = 0;
+
 let selectedAnswer = null;
 
+let score = 0;
 
-// =============================
+let answered = false;
+
+
+// ==========================================
 // SHOW ANATOMY PART
-// =============================
+// ==========================================
 
 function showPart(name) {
 
     currentPart = name;
+
     questionIndex = 0;
+
     selectedAnswer = null;
+
+    score = 0;
+
+    answered = false;
+
 
     document.getElementById("partTitle").textContent =
         anatomy[name].title;
 
+
     document.getElementById("partText").textContent =
         anatomy[name].text;
 
-    const clinicalElement =
+
+    const clinical =
         document.getElementById("clinical");
 
-    if (clinicalElement) {
-        clinicalElement.textContent =
+    if (clinical) {
+
+        clinical.textContent =
             anatomy[name].clinical;
+
     }
+
+
+    const scoreElement =
+        document.getElementById("quizScore");
+
+    if (scoreElement) {
+
+        scoreElement.textContent =
+            "Score: 0 / 3";
+
+    }
+
 
     showQuestion();
 }
 
 
-// =============================
-// SHOW ONE QUESTION
-// =============================
+// ==========================================
+// SHOW QUESTION
+// ==========================================
 
 function showQuestion() {
 
     if (!currentPart) return;
 
+
     const quiz =
         anatomy[currentPart].quiz[questionIndex];
+
 
     const questionElement =
         document.getElementById("quizQuestion");
 
+
     const optionsElement =
         document.getElementById("quizOptions");
+
 
     const resultElement =
         document.getElementById("quizResult");
 
+
     questionElement.textContent =
         quiz.question;
 
+
     optionsElement.innerHTML = "";
+
 
     resultElement.textContent = "";
 
+
     selectedAnswer = null;
+
+    answered = false;
 
 
     quiz.options.forEach(function(option, index) {
@@ -341,9 +402,13 @@ function showQuestion() {
         const button =
             document.createElement("button");
 
+
         button.type = "button";
 
-        button.className = "quiz-option";
+
+        button.className =
+            "quiz-option";
+
 
         button.textContent =
             String.fromCharCode(65 + index) +
@@ -353,28 +418,38 @@ function showQuestion() {
 
         button.onclick = function() {
 
+            if (answered) return;
+
+
             selectedAnswer = index;
 
-            const allOptions =
+
+            const allButtons =
                 document.querySelectorAll(".quiz-option");
 
-            allOptions.forEach(function(btn) {
+
+            allButtons.forEach(function(btn) {
+
                 btn.classList.remove("selected");
+
             });
 
+
             button.classList.add("selected");
+
         };
 
 
         optionsElement.appendChild(button);
 
     });
+
 }
 
 
-// =============================
+// ==========================================
 // CHECK ANSWER
-// =============================
+// ==========================================
 
 function checkAnswer() {
 
@@ -382,10 +457,25 @@ function checkAnswer() {
         document.getElementById("quizResult");
 
 
+    if (!currentPart) {
+
+        resultElement.textContent =
+            "Please select a structure first.";
+
+        return;
+    }
+
+
     if (selectedAnswer === null) {
 
         resultElement.textContent =
-            "Please select an answer first.";
+            "Please select an answer first. ⚠️";
+
+        return;
+    }
+
+
+    if (answered) {
 
         return;
     }
@@ -395,10 +485,17 @@ function checkAnswer() {
         anatomy[currentPart].quiz[questionIndex];
 
 
+    answered = true;
+
+
     if (selectedAnswer === quiz.answer) {
+
+        score++;
+
 
         resultElement.textContent =
             "Correct! ✅";
+
 
     } else {
 
@@ -406,12 +503,25 @@ function checkAnswer() {
             "Incorrect ❌";
 
     }
+
+
+    const scoreElement =
+        document.getElementById("quizScore");
+
+
+    if (scoreElement) {
+
+        scoreElement.textContent =
+            "Score: " + score + " / 3";
+
+    }
+
 }
 
 
-// =============================
+// ==========================================
 // NEXT QUESTION
-// =============================
+// ==========================================
 
 function nextQuestion() {
 
@@ -423,17 +533,30 @@ function nextQuestion() {
     }
 
 
-    questionIndex++;
+    // If the third question is finished
+    if (questionIndex === 2) {
+
+        document.getElementById("quizQuestion").textContent =
+            "Quiz Completed! 🏆";
 
 
-    if (
-        questionIndex >=
-        anatomy[currentPart].quiz.length
-    ) {
+        document.getElementById("quizOptions").innerHTML =
+            "";
 
-        questionIndex = 0;
+
+        document.getElementById("quizResult").textContent =
+            "Final Score: " + score + " / 3";
+
+
+        answered = true;
+
+        return;
     }
 
 
+    questionIndex++;
+
+
     showQuestion();
+
 }

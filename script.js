@@ -293,28 +293,28 @@ function showPart(name) {
 }
 
 
-// Show ONE question
+// Show ONE question 
 function showQuestion() {
 
-    if (currentPart === null) return;
+    if (!currentPart) return;
 
     const quiz = anatomy[currentPart].quiz[questionIndex];
 
-    document.getElementById("quizQuestion").innerHTML =
+    document.getElementById("quizQuestion").textContent =
         quiz.question;
 
-    document.getElementById("quizResult").innerHTML = "";
-
-    const optionsContainer =
+    const container =
         document.getElementById("quizOptions");
 
-    optionsContainer.innerHTML = "";
+    container.innerHTML = "";
+
+    document.getElementById("quizResult").textContent = "";
 
     quiz.options.forEach(function(option, index) {
 
         const button = document.createElement("button");
 
-        button.innerHTML = option;
+        button.textContent = option;
 
         button.className = "quiz-option";
 
@@ -322,33 +322,34 @@ function showQuestion() {
             checkAnswer(index);
         };
 
-        optionsContainer.appendChild(button);
+        container.appendChild(button);
 
     });
 }
+
+
 function checkAnswer(selected) {
 
-    const quiz =
-        anatomy[currentPart].quiz[questionIndex];
+    const quiz = anatomy[currentPart].quiz[questionIndex];
 
     if (selected === quiz.answer) {
 
-        document.getElementById("quizResult").innerHTML =
+        document.getElementById("quizResult").textContent =
             "Correct! ✅";
 
     } else {
 
-        document.getElementById("quizResult").innerHTML =
-            "Incorrect ❌ Try again.";
+        document.getElementById("quizResult").textContent =
+            "Incorrect ❌";
 
     }
 }
 
-// Next question
+
 function nextQuestion() {
 
-    if (currentPart === null) {
-        alert("Please select a femur structure first.");
+    if (!currentPart) {
+        alert("Select a structure first.");
         return;
     }
 
@@ -359,24 +360,4 @@ function nextQuestion() {
     }
 
     showQuestion();
-}
-function checkAnswer() {
-
-    if (currentPart === null) {
-        return;
-    }
-
-    const answer =
-        document.getElementById("quizAnswer").value
-        .trim()
-        .toLowerCase();
-
-    if (answer === "") {
-        document.getElementById("quizResult").innerHTML =
-            "Please enter an answer.";
-        return;
-    }
-
-    document.getElementById("quizResult").innerHTML =
-        "Answer submitted ✅";
 }

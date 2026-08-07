@@ -469,3 +469,45 @@ function nextQuestion() {
 
     showQuestion();
 }
+function showQuestion() {
+
+    if (!currentPart) return;
+
+    const quiz = anatomy[currentPart].quiz[questionIndex];
+
+    document.getElementById("quizQuestion").textContent =
+        quiz.question;
+
+    const optionsBox =
+        document.getElementById("quizOptions");
+
+    optionsBox.innerHTML = "";
+
+    quiz.options.forEach(function(option, index) {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+
+        button.textContent =
+            String.fromCharCode(65 + index) + ". " + option;
+
+        button.className = "quiz-option";
+
+        button.onclick = function() {
+
+            selectedAnswer = index;
+
+            document
+                .querySelectorAll(".quiz-option")
+                .forEach(function(btn) {
+                    btn.classList.remove("selected");
+                });
+
+            button.classList.add("selected");
+        };
+
+        optionsBox.appendChild(button);
+
+    });
+}

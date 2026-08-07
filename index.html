@@ -128,48 +128,33 @@
 
             <div class="quiz">
 
-                <h2>🧠 Quiz Mode</h2>
+    <h2>🧠 Quiz Mode</h2>
 
+    <p id="quizQuestion">
+        Select a structure to start.
+    </p>
 
-                <p id="quizQuestion">
-                    Select a structure to start.
-                </p>
+    <div id="quizOptions"></div>
 
+    <p id="quizResult"></p>
 
-                <!-- Answer options will appear here -->
+    <p id="quizScore">
+        Score: 0 / 3
+    </p>
 
-                <div id="quizOptions"></div>
+    <button
+        type="button"
+        onclick="checkAnswer()">
+        Check Answer
+    </button>
 
+    <button
+        type="button"
+        onclick="nextQuestion()">
+        Next Question →
+    </button>
 
-                <!-- Correct / Incorrect message -->
-
-                <p id="quizResult"></p>
-<p id="quizScore">
-    Score: 0 / 3
-</p>
-
-                <!-- Check selected answer -->
-
-                <button
-                    type="button"
-                    onclick="checkAnswer()">
-
-                    Check Answer
-
-                </button>
-
-
-                <!-- Go to next question -->
-
-                <button
-                    type="button"
-                    onclick="nextQuestion()">
-
-                    Next Question →
-
-                </button>
-
-            </div>
+</div>
 
 
         </section>

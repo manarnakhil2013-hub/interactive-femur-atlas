@@ -296,6 +296,10 @@ function showPart(name) {
 // Show ONE question 
 function showQuestion() {
 
+    let selectedAnswer = null;
+
+function showQuestion() {
+
     if (!currentPart) return;
 
     const quiz = anatomy[currentPart].quiz[questionIndex];
@@ -310,41 +314,57 @@ function showQuestion() {
 
     document.getElementById("quizResult").textContent = "";
 
+    selectedAnswer = null;
+
     quiz.options.forEach(function(option, index) {
 
         const button = document.createElement("button");
 
         button.textContent = option;
-
         button.className = "quiz-option";
 
         button.onclick = function() {
-            checkAnswer(index);
+
+            selectedAnswer = index;
+
+            // تمييز الاختيار
+            const allButtons =
+                container.querySelectorAll("button");
+
+            allButtons.forEach(function(btn) {
+                btn.style.fontWeight = "normal";
+            });
+
+            button.style.fontWeight = "bold";
         };
 
         container.appendChild(button);
-
     });
 }
 
 
-function checkAnswer(selected) {
+function checkAnswer() {
+
+    if (selectedAnswer === null) {
+
+        document.getElementById("quizResult").textContent =
+            "Please select an answer first.";
+
+        return;
+    }
 
     const quiz =
         anatomy[currentPart].quiz[questionIndex];
 
-    const result =
-        document.getElementById("quizResult");
+    if (selectedAnswer === quiz.answer) {
 
-    if (selected === quiz.answer) {
-
-        result.textContent = "Correct! ✅";
-        result.style.color = "green";
+        document.getElementById("quizResult").textContent =
+            "Correct! ✅";
 
     } else {
 
-        result.textContent = "Incorrect ❌";
-        result.style.color = "red";
+        document.getElementById("quizResult").textContent =
+            "Incorrect ❌";
 
     }
 }

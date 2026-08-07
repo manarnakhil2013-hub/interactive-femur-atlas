@@ -296,42 +296,30 @@ function showPart(name) {
 // Show ONE question 
 function showQuestion() {
 
-    let selectedAnswer = null;
-
-function showQuestion() {
-
-    if (!currentPart) return;
-
     const quiz = anatomy[currentPart].quiz[questionIndex];
 
     document.getElementById("quizQuestion").textContent =
         quiz.question;
 
-    const container =
-        document.getElementById("quizOptions");
+    const box = document.getElementById("quizOptions");
 
-    container.innerHTML = "";
-
-    document.getElementById("quizResult").textContent = "";
-
-    selectedAnswer = null;
+    box.innerHTML = "";
 
     quiz.options.forEach(function(option, index) {
 
         const button = document.createElement("button");
 
-        button.textContent = option;
+        button.textContent =
+            String.fromCharCode(65 + index) + ". " + option;
+
+        button.type = "button";
+
         button.className = "quiz-option";
 
-        button.onclick = function() {
-    selectedAnswer = index;
+        box.appendChild(button);
 
-    document.querySelectorAll(".quiz-option").forEach(function(btn) {
-        btn.classList.remove("selected");
     });
-
-    button.classList.add("selected");
-};
+}
 
             // تمييز الاختيار
             const allButtons =

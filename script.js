@@ -324,8 +324,14 @@ function showQuestion() {
         button.className = "quiz-option";
 
         button.onclick = function() {
+    selectedAnswer = index;
 
-            selectedAnswer = index;
+    document.querySelectorAll(".quiz-option").forEach(function(btn) {
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+};
 
             // تمييز الاختيار
             const allButtons =
@@ -429,29 +435,24 @@ function showQuestion() {
 }
 
 
+let selectedAnswer = null;
+
 function checkAnswer() {
 
     if (selectedAnswer === null) {
-
         document.getElementById("quizResult").textContent =
-            "Please select an answer first.";
-
+            "Please select an answer first. ⚠️";
         return;
     }
 
-    const quiz =
-        anatomy[currentPart].quiz[questionIndex];
+    const quiz = anatomy[currentPart].quiz[questionIndex];
 
     if (selectedAnswer === quiz.answer) {
-
         document.getElementById("quizResult").textContent =
             "Correct! ✅";
-
     } else {
-
         document.getElementById("quizResult").textContent =
             "Incorrect ❌";
-
     }
 }
 

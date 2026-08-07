@@ -385,3 +385,86 @@ function nextQuestion() {
 
     showQuestion();
 }
+let selectedAnswer = null;
+
+function showQuestion() {
+
+    if (!currentPart) return;
+
+    const quiz = anatomy[currentPart].quiz[questionIndex];
+
+    document.getElementById("quizQuestion").textContent =
+        quiz.question;
+
+    const container = document.getElementById("quizOptions");
+
+    container.innerHTML = "";
+
+    document.getElementById("quizResult").textContent = "";
+
+    selectedAnswer = null;
+
+    quiz.options.forEach(function(option, index) {
+
+        const button = document.createElement("button");
+
+        button.textContent = option;
+        button.className = "quiz-option";
+
+        button.onclick = function() {
+
+            selectedAnswer = index;
+
+            // إزالة التحديد السابق
+            container.querySelectorAll(".quiz-option").forEach(function(btn) {
+                btn.classList.remove("selected");
+            });
+
+            // تحديد الإجابة المختارة
+            button.classList.add("selected");
+        };
+
+        container.appendChild(button);
+    });
+}
+
+
+function checkAnswer() {
+
+    if (selectedAnswer === null) {
+
+        document.getElementById("quizResult").textContent =
+            "Please select an answer first.";
+
+        return;
+    }
+
+    const quiz =
+        anatomy[currentPart].quiz[questionIndex];
+
+    if (selectedAnswer === quiz.answer) {
+
+        document.getElementById("quizResult").textContent =
+            "Correct! ✅";
+
+    } else {
+
+        document.getElementById("quizResult").textContent =
+            "Incorrect ❌";
+
+    }
+}
+
+
+function nextQuestion() {
+
+    if (!currentPart) return;
+
+    questionIndex++;
+
+    if (questionIndex >= anatomy[currentPart].quiz.length) {
+        questionIndex = 0;
+    }
+
+    showQuestion();
+}

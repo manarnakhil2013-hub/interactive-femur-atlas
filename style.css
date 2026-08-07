@@ -183,4 +183,31 @@ position:relative;
     color: white;
 
 }
+#quizOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
 
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #6c63ff;
+    border-radius: 10px;
+    background: #f0efff;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.quiz-option:hover {
+    background: #6c63ff;
+    color: white;
+}
+
+#quizResult {
+    font-weight: bold;
+    margin-top: 12px;
+}

@@ -84,108 +84,46 @@ quiz:[
 }
 
 };
-let currentPart = "";
+let currentPart = null;
 let questionIndex = 0;
 
-function showPart(name){
+function showPart(name) {
 
-currentPart = name;
-questionIndex = 0;
+    currentPart = name;
+    questionIndex = 0;
 
-document.getElementById("partTitle").innerHTML =
-anatomy[name].title;
+    document.getElementById("partTitle").innerHTML =
+        anatomy[name].title;
 
-document.getElementById("partText").innerHTML =
-anatomy[name].text;
+    document.getElementById("partText").innerHTML =
+        anatomy[name].text;
 
-document.getElementById("clinical").innerHTML =
-anatomy[name].clinical;
+    document.getElementById("clinical").innerHTML =
+        anatomy[name].clinical;
 
-showQuestion();
-
-
-// تغيير سؤال الكويز حسب الجزء
-
-
-
+    showQuestion();
 }
 
+function showQuestion() {
 
+    if (!currentPart) return;
 
-function nextQuestion(){
-
-questionIndex++;
-
-if(questionIndex >= anatomy[currentPart].quiz.length){
-
-questionIndex = 0;
-
-alert("Quiz completed 🎉");
-
+    document.getElementById("quizQuestion").innerHTML =
+        anatomy[currentPart].quiz[questionIndex];
 }
 
-showQuestion();
+function nextQuestion() {
 
-}
+    if (!currentPart) {
+        alert("Please select a femur structure first.");
+        return;
+    }
 
-// Quiz
+    questionIndex++;
 
+    if (questionIndex >= anatomy[currentPart].quiz.length) {
+        questionIndex = 0;
+    }
 
-
-
-let current=0;
-
-
-
-
-function checkAnswer(){
-
-let answer=
-document.getElementById("quizAnswer").value;
-
-
-if(answer.toLowerCase()
-.includes(questions[current].a.toLowerCase())){
-
-alert("Correct ✅");
-
-}
-else{
-
-alert("Try again ❌");
-
-}
-
-}
-let currentQuiz = 0;
-let selectedPart = "";
-
-function startQuiz(name){
-
-selectedPart = name;
-currentQuiz = 0;
-
-showQuestion();
-
-}
-
-
-
-
-
-
-function nextQuestion(){
-
-currentQuiz++;
-
-if(currentQuiz >= anatomy[selectedPart].quiz.length){
-
-currentQuiz = 0;
-
-alert("Quiz completed 🎉");
-
-}
-
-showQuestion();
-
+    showQuestion();
 }

@@ -298,31 +298,31 @@ function showQuestion() {
 
     if (currentPart === null) return;
 
-    const quiz =
-        anatomy[currentPart].quiz[questionIndex];
+    const quiz = anatomy[currentPart].quiz[questionIndex];
 
     document.getElementById("quizQuestion").innerHTML =
         quiz.question;
 
     document.getElementById("quizResult").innerHTML = "";
 
-    const options =
+    const optionsContainer =
         document.getElementById("quizOptions");
 
-    options.innerHTML = "";
+    optionsContainer.innerHTML = "";
 
-    quiz.options.forEach((option, index) => {
+    quiz.options.forEach(function(option, index) {
 
-        const button =
-            document.createElement("button");
+        const button = document.createElement("button");
 
         button.innerHTML = option;
+
+        button.className = "quiz-option";
 
         button.onclick = function() {
             checkAnswer(index);
         };
 
-        options.appendChild(button);
+        optionsContainer.appendChild(button);
 
     });
 }

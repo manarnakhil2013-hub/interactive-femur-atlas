@@ -330,17 +330,21 @@ function showQuestion() {
 
 function checkAnswer(selected) {
 
-    const quiz = anatomy[currentPart].quiz[questionIndex];
+    const quiz =
+        anatomy[currentPart].quiz[questionIndex];
+
+    const result =
+        document.getElementById("quizResult");
 
     if (selected === quiz.answer) {
 
-        document.getElementById("quizResult").textContent =
-            "Correct! ✅";
+        result.textContent = "Correct! ✅";
+        result.style.color = "green";
 
     } else {
 
-        document.getElementById("quizResult").textContent =
-            "Incorrect ❌";
+        result.textContent = "Incorrect ❌";
+        result.style.color = "red";
 
     }
 }

@@ -211,3 +211,7 @@ position:relative;
     font-weight: bold;
     margin-top: 12px;
 }
+.quiz-option.selected {
+    border: 3px solid #6c63ff;
+    font-weight: bold;
+}

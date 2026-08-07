@@ -105,17 +105,11 @@ showQuestion();
 
 
 // تغيير سؤال الكويز حسب الجزء
-document.getElementById("quizQuestion").innerHTML =
-anatomy[name].quiz;
 
 
-}
-function showQuestion(){
-
-document.getElementById("quizQuestion").innerHTML =
-anatomy[currentPart].quiz[questionIndex];
 
 }
+
 
 
 function nextQuestion(){
@@ -136,34 +130,12 @@ showQuestion();
 
 // Quiz
 
-const questions=[
-{
-q:"Which part articulates with the acetabulum?",
-a:"Head of Femur"
-},
 
-{
-q:"Which structure is a common fracture site?",
-a:"Neck of Femur"
-},
-
-{
-q:"Which part is the attachment site of iliopsoas?",
-a:"Lesser Trochanter"
-}
-
-];
 
 
 let current=0;
 
 
-function showQuiz(){
-
-document.getElementById("quizQuestion").innerHTML=
-questions[current].q;
-
-}
 
 
 function checkAnswer(){
@@ -198,12 +170,7 @@ showQuestion();
 }
 
 
-function showQuestion(){
 
-document.getElementById("quizQuestion").innerHTML =
-anatomy[selectedPart].quiz[currentQuiz];
-
-}
 
 
 

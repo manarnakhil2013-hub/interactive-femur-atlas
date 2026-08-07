@@ -215,3 +215,18 @@ position:relative;
     border: 3px solid #6c63ff;
     font-weight: bold;
 }
+#quizOptions {
+    display: block !important;
+}
+
+.quiz-option {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    background: white;
+    color: black;
+    border: 2px solid #6c63ff;
+}

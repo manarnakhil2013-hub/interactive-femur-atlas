@@ -5,7 +5,7 @@ title:"Head of Femur",
 text:"The head articulates with the acetabulum forming the hip joint.",
 clinical:"Clinical note: The blood supply of the femoral head is important.",
 quiz:[
-"Which bone articulates with the head of femur?",
+ "Which bone articulates with the head of femur?",
 "What joint is formed by the femoral head and acetabulum?",
 "Which structure is covered by articular cartilage?"
 ]
